@@ -1,0 +1,50 @@
+
+public class Lec05 {
+
+	public static void main(String[] args) 
+	{
+		//object
+		Lec05_Cons obj1= new Lec05_Cons();
+		obj1.mymethod();
+			
+	    System.out.println(obj1.Num);	
+	    System.out.println(obj1.Name);	
+
+	}
+
+}
+//======================================================
+//==================================================
+
+public class Lec05_Cons 
+{
+  //Data Field
+    int Num=115;
+	String Name="Java";
+	
+// Constructor
+	Lec05_Cons()
+	{
+		System.out.println("This is a Constructor");
+	}
+//==============================
+	
+	Lec05_Cons(String A, int B)//====data field inside the parentheses
+	{
+		this.Name=A;
+		this.Num=B;
+		
+		System.out.println("The Second Type of Constructor");	
+		System.out.println(A);	
+		System.out.println(B);	
+	}
+//===================================	
+
+	//Methods
+	
+	public static void mymethod()
+	{
+		System.out.println("This is my method");	
+	}
+
+}

@@ -1,0 +1,61 @@
+
+public class Lec05 {
+
+	public static void main(String[] args) 
+	{
+		//object	
+		Lec05_Cons obj = new Lec05_Cons();
+		obj.func();
+	}
+
+}
+//==================================================
+
+
+
+public class Lec05_Cons 
+{
+  //Data Field
+    static int a;
+    
+    static
+    {
+        a = 4;
+        System.out.println ("inside static blockn");
+        System.out.println ("a = " + a);
+    }
+     
+
+// Constructor
+	Lec05_Cons()    
+	{
+        System.out.println ("outside constructor");
+        a = 10;
+    }
+
+//==============================
+	
+	/*Lec05_Cons()//====data field inside the parentheses
+    {
+     
+    }            
+
+	/*	System.out.println("The Second Type of Constructor");	
+		System.out.println(A);	
+		System.out.println(B);	
+	*/
+//=================================	
+
+	//Methods
+	
+    public static void func()
+    {
+        a = a + 1;
+        System.out.println ("a = " + a);
+    }
+     
+
+    }            
+
+
+

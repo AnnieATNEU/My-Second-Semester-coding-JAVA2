@@ -1,0 +1,63 @@
+import java.util.*;
+
+public class ArrayMethods        
+
+{
+	 public static void main(String[] args)
+	 {
+	//Write a Java program to test if 2D array contains a specific value
+    //Write a Java program to find the index of 2D array element?
+	
+   //create 2D array
+   // iterate
+   //check if I have the number	 
+	//if number is found or not
+
+		Scanner input= new Scanner (System.in);
+		System.out.print("Please Enter the Number of Rows for your Array");
+		int row=input.nextInt();
+		 
+		System.out.print("Please Enter the Number of Columns for your Array");
+		int col=input.nextInt();
+		
+		 int [] []A= new int[row][col];
+		
+		 System.out.print("Please Enter values to your array which is = " + (row*col));
+	     
+	       for (row=0; row < A.length ; row++)
+	  	 {
+	  		 for(col=0; col < A[row].length ; col++)
+	  		 
+	  			{
+	  			   A[row][col]=input.nextInt();;
+	  				System.out.print(A[row][col] + "\t");
+	  			}
+	  		 System.out.println();
+	 } 
+	  	 }
+}
+		 
+
+====================================================
+import java.util.*;
+
+public class lec2 {
+
+	
+	public static boolean searcharray(int [][] A, int Target)
+	{
+		
+	 for (int row=0; row < A.length ; row++)
+	 {
+		 for(int col=0; col < A[row].length ; col++)
+		 {
+			if (A[row][col]==Target) 
+			{
+				  return true;
+			}
+		 }
+     }
+	 
+return false;
+   }
+	}
