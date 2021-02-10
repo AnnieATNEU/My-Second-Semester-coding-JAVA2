@@ -1,0 +1,103 @@
+package Lec05;
+//This is the other class
+
+public class BMI {
+//1. Data Field
+	private String name;
+	private int age;
+	private static double weight;
+	private static double height;
+	public static final double Kil_per_pound=0.45359;
+	public static final double meter_per_inch=0.0254;
+	
+		
+//2.Constructors
+ 
+	BMI(String newname, int newage, double newweight, double newheight)
+	{
+		this.name=newname;
+		this.age=newage;
+		this.weight=newweight;
+		this.height=newheight;	
+	}
+	
+	BMI(String newname, double newweight, double newheight)
+	{
+		this(newname,20,newweight,newheight);
+	}	
+	
+//3. Methods
+	//* This is expressed as kg/m^2.
+	public static double getBMI()
+	{
+		double BMIRESULT= (weight*Kil_per_pound)/(height*meter_per_inch);
+		return BMIRESULT;
+	}
+	
+	public static String BMIStatus()
+	{
+		double result=getBMI();
+		if (result<18.5)
+			return "Underweight";
+		else if (result<25)
+			return "Normal";
+		else if (result<30)
+		    return "Overweight";
+		else 
+			return "Obese";		
+		
+	}
+	
+	public String getname() 
+	{
+		return name;
+	}
+	
+	public int getage() 
+	{
+		return age;
+	}
+	
+	public double getweight() 
+	{
+		return weight;
+	}
+	
+	public double getheight() 
+	{
+		return height;
+	}
+}
+
+//=================================================
+package Lec05;
+//This is the Main class
+public class Lec05_BMI {
+
+	public static void main(String[] args) {
+	/*
+	 * The Body Mass Index is the body mass 
+	 * in kilogram divided by the square of body height in meters
+	 * 
+	 * 
+	 * This is expressed as kg/m^2.
+	 *Create a program that calculate a body mass index	 
+	 */
+	
+	BMI obj1= new BMI ("John", 18, 145,70);
+	System.out.println("This is a result of BMI for " + obj1.getname () 
+	+" the age is " + obj1.getage() + ". The Status is:" + obj1.BMIStatus());
+	}
+
+}
+
+
+/*/=======================================================
+ * OUTPUT
+ * 
+ * This is a result of BMI for John the age is 18. The Status is:Obese
+ * 
+ * 
+ */
+
+//============================================
