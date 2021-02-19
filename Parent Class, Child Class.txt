@@ -1,0 +1,76 @@
+//====================Main class
+package Abcln;
+
+public class Mymain09 {
+
+	public static void main(String[] args)
+	{
+		MountainBike obj1= new MountainBike(10,4,35);
+	    System.out.println(obj1.toString());
+	}
+
+}
+
+
+
+//==================================Child class
+package Abcln;
+
+public class MountainBike extends ParBicycle
+{
+	// data field
+ public int setheight;
+ 
+ //Constructor
+ public MountainBike (int speed, int gear, int Starthigh)
+ {
+	 super(speed,gear);
+	 setheight=Starthigh;
+ }
+//method
+ public void sethigh(int newvalue)
+ {
+	 setheight=newvalue;
+ }
+ //method to print 
+ public String toString()
+ {
+	 //return(super.toString()+ " This is the seat height = " + setheight);//this is initializing parent class first
+	 return(" This is the seat height = " + setheight + " | " + super.toString()); // this is initializing parent class on end 
+ }
+
+}
+//======================Parent class
+package Abcln;
+
+public class ParBicycle 
+{
+ public int speed;
+ public int gear;
+//constructor
+ public ParBicycle(int speed, int gear)
+ {
+	 this.speed=speed;
+	 this.gear=gear;
+ }
+ //1st method
+ public void appalbreak(int deincremnt)
+ {
+	 speed= speed- deincremnt;
+ }
+ 
+ //2nd method
+ public void speedup (int incremnt)
+ {
+	 speed= speed+ incremnt;
+ }
+
+ //printing method
+ public String toString()
+ {
+	 return (" No. of Gear = " + gear + " | " + "The speed is = " + speed );
+ }
+ 
+ 
+}
+
