@@ -1,0 +1,33 @@
+
+public class Mymain {
+
+	public static void main(String[] args)
+	{
+		Mod09 obj1 = new Mod09();
+		System.out.println(obj1.getname());
+		
+		obj1.setname("John");
+		System.out.println(obj1.getname());
+	}
+
+}
+//===========================================================
+///other class
+
+public class Mod09 
+{
+  private String name;
+
+
+  public void setname(String newname)
+  {
+	  this.name=newname;
+  }
+
+  public String getname()
+  {
+	  return name;
+  }
+  
+  
+}
