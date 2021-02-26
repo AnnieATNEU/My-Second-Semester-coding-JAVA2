@@ -1,0 +1,126 @@
+import java.util.Scanner;
+
+class Triangle extends GeometricObject {
+
+	public double side1;
+	public double side2;
+	public double side3;
+
+	public Triangle() // default constructor
+	{
+		side1 = 1.0;
+		side2 = 1.0;
+		side3 = 1.0;
+	}
+
+	public Triangle(double side1, double side2, double side3) // A constructor that creates a triangle with
+																// the specified side1, side2, and side3.
+	{
+		this.side1 = side1;
+		this.side2 = side2;
+		this.side3 = side3;
+	}
+
+//============================================================
+	// Override /The accessor methods for all three data fields.
+	public double getArea() { //// this method returns the area of this triangle.
+		double area, s;
+		s = side1 + side2 + side3;
+		area = Math.sqrt(s * (s - side1) * (s - side2) * (s - side3));
+		return (area);
+	}
+
+//======================================================================
+	// Override
+	public double getPerimeter() // this method returns the perimeter of this triangle.
+	{
+		return (side1 + side2 + side3);
+	}
+
+//=============================================================
+	// Override
+	public String toString()// method that returns a string description for the triangle.
+	{
+		return "Triangle:side1 " + side1 + " side2 " + side2 + " side3 " + side3;
+	}
+//=====================================================
+}
+
+import java.util.Scanner;
+
+ public class GeometricObject {
+
+	 private String color = "white";
+	 private boolean filled=true;
+     double side1,side2,side3;
+     
+    public void setSide1(double side1)
+     {
+        side1 = side1;
+     }
+    public void setSide2(double side2)
+     {
+        side2 = side2;
+     }
+    public void setSide3(double side3)
+     {
+        side3 = side3;
+     }
+    public double getSide1()
+     {
+       return (side1);
+     }
+    public double getSide2()
+     {
+       return (side2);
+     }
+   public double getSide3()
+     {
+        return (side3);
+     }
+    public void setColor(String clr)
+     {
+     color=clr;
+     }
+    public String getColor()
+     {
+     return(color);
+     }
+    public void setFilled(boolean fill)
+     {
+     filled=fill;
+     }
+   public boolean isFilled()
+     {
+     return(filled);
+     }
+}
+
+import java.util.Scanner;
+
+public class MyMain {
+	public static void main(String args[]) {
+
+		Scanner input = new Scanner(System.in);
+		System.out.println("Enter three sides of the Triangle : ");
+		double side1 = input.nextDouble();
+		double side2 = input.nextDouble();
+		double side3 = input.nextDouble();
+		Triangle obj1 = new Triangle(side1, side2, side3);
+
+		System.out.println("Enter the color of the Triangle : ");
+		String color;
+		color = input.next();
+
+		System.out.println(" Is the Triangle filled? Reply with 'True' or 'False' ");
+		boolean filled;
+		filled = input.nextBoolean();
+		// To Display
+		System.out.println("Area is " + obj1.getArea());
+		System.out.println("Perimeter is " + obj1.getPerimeter());
+		System.out.println("Color is " + obj1.getColor());
+		System.out.println("Filled is " + (obj1.isFilled()));
+	}
+}
+
+
