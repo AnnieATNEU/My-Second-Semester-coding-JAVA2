@@ -1,0 +1,110 @@
+TestClass
+//===============================
+package ABCD;
+
+public class TestClass {
+
+	public static void main(String[] args)
+	{
+		Person all[]= new Person[4];
+			
+	all[0]=new Student("John", "Mcdonald", 24 , 92838, 2023 , 4.0);
+	//obj1.printall();
+	
+	all[1]=new Student("Mike", "Soud", 21 , 23145, 2023 , 3.9);
+	//obj3.printall();
+	
+	all[2]=new Faculty("Fatema", "Nafa", 35 , 86758, 3 , 1500);
+	//obj2.printall();
+	
+	all[3]=new Faculty("Bo", "Hatfield", 39 , 76558, 3 , 1500);
+	//obj2.printall();
+	
+for(Person Person:all)	
+{
+	Person.printall();
+}
+	
+	}
+
+}
+
+
+
+//==================================================
+Faculty class
+==========
+package ABCD;
+
+public class Faculty extends Person {
+	private int Load_Cr;
+	private int Salary;
+	
+	public Faculty(String newFirstName, String newLastName, int newage, int newID, int newLoad_Cr,int newSalary)
+	{
+	   super(newFirstName, newLastName, newage, newID);	
+	   this.Load_Cr=newLoad_Cr;
+	   this.Salary=newSalary;
+	}
+	
+	public void printall()
+	{
+		System.out.println("This is Faculty Information");
+		super.printall();
+		System.out.println("\t" + " This is the load " + Load_Cr);
+		System.out.println("\t" + " This is the Salary " + Salary);
+	}	
+
+}
+
+//=====================================
+Student Class
+========================
+package ABCD;
+
+public class Student extends Person {
+	private int gradeYear;
+	private double GPA;
+///////////////////////////////////////////////
+	public Student(String newFirstName, String newLastName, int newage, int newID,int newgradeYear,double newGPA) {
+		super(newFirstName, newLastName, newage, newID); // super " to call constructor from parent's class	
+	    this.gradeYear=newgradeYear;
+	    this.GPA= newGPA;
+	}
+////////////////////////////////////////////	
+	public void printall()
+	{
+		System.out.println("This is Student Information");
+		super.printall();
+		System.out.println("\t" + " The grade year = " + gradeYear);
+		System.out.println("\t" + " The GPA = " + GPA);
+	}
+	
+	
+	
+}
+//==================================
+Person Class
+//=============
+package ABCD;
+
+public class Person {
+	protected String FirstName;
+	protected String LastName;
+	protected int age;
+	protected int ID;
+
+	public Person(String newFirstName, String newLastName, int newage, int newID) {
+		this.FirstName = newFirstName;
+		this.LastName = newLastName;
+		this.age = newage;
+		this.ID = newID;
+	}
+
+	public void printall() {
+		System.out.println("\t" + " The first Name = " + FirstName + "| The Last Name = " + LastName + "| The age = " + age
+				+ "| The ID = " + ID);
+	}
+
+}
+
