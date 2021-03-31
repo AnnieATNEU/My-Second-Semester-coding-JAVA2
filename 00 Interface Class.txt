@@ -1,0 +1,105 @@
+package Employee;
+
+public class MyMain {
+
+	public static void main(String[] args) {
+
+		System.out.println("Employee Salaries for month March");
+
+		IEmployee[] employee = new IEmployee[4];
+		employee[0] = new PartTimeEmployee("\nMark Goldberg", 30, 40);
+		employee[1] = new PartTimeEmployee("Claire Buswich", 30, 50);
+		employee[2] = new FullTimeEmployee("Ryan James", 25, 50);
+		employee[3] = new FullTimeEmployee("Gina Loder", 30, 55);
+		for (int i = 0; i < 4; i++) {
+			System.out.println("The amount of salary earned :" + "$" + employee[i].calculateSalary());
+			System.out.println("================================================================");
+		}
+
+	}
+}
+=====================================================================================================
+package Employee;
+
+public interface IEmployee {
+
+	 public int calculateSalary();
+	 public String getName();
+}
+=================================================================================
+package Employee;
+
+public class Employee implements IEmployee {
+	String name;
+	int paymentPerHour;
+
+	Employee(String name, int paymentPerHour) {
+		this.name = name;
+		this.paymentPerHour = paymentPerHour;
+	}
+
+	// ==== Methods implemented from interface class
+	public int calculateSalary() {
+		return paymentPerHour;
+
+	}
+
+	public String getName() {
+		return name;
+
+	}
+
+	public int getpaymentPerHour() {
+
+		return paymentPerHour;
+	}
+
+	public int setPaymentPerHour() {
+		this.paymentPerHour = paymentPerHour;
+		return paymentPerHour;
+	}
+
+}
+
+
+==============================================================================
+package Employee;
+
+public class FullTimeEmployee extends Employee {
+
+	private int workingHours;
+
+	FullTimeEmployee(String name, int paymentPerHour, int workingHours) {
+		super(name, paymentPerHour);
+		this.workingHours = workingHours;
+	}
+
+	@Override
+	public int calculateSalary() {
+		System.out.println(name);
+		int salary = workingHours * getpaymentPerHour();
+		return salary;
+
+	}
+}
+======================================================================
+package Employee;
+
+public class PartTimeEmployee extends Employee {
+	private int workingHours;
+
+	PartTimeEmployee(String name, int paymentPerHour, int workingHours) {
+
+		super(name, paymentPerHour);
+		this.workingHours = workingHours;
+	}
+	@Override
+	public int calculateSalary() {
+		System.out.println(name);
+		int salary= workingHours*getpaymentPerHour();
+		 return salary;
+		
+		
+	}	
+}
+

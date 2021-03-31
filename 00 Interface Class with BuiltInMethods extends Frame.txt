@@ -1,0 +1,90 @@
+package InterfaceClassQ1;
+
+public class TestClass {
+
+	public static void main(String[] args) {
+
+		Test_Color obj = new Test_Color();
+
+		String text = "Salem State University";
+		IShape[] shapes = new IShape[3];
+
+		shapes[0] = new Circle(12.5);
+		shapes[1] = new Circle(6.5);
+		shapes[2] = new Rectangle(14, 25);
+
+		for (int i = 0; i < 3; i++) {
+			System.out.println("The result of Shapes.. [" + i + "]" + shapes[i].fitsText(text));
+		}
+		obj.Test();
+	}
+}
+===================================================================================
+package InterfaceClassQ1;
+
+import java.awt.*; //to open the Java builtin package
+import javax.swing.*;
+
+public class Test_Color extends Frame {
+	Label text;
+
+	public void Test() {
+		text = new Label("Salem State University");
+		text.setForeground(Color.green);
+		add(text);
+
+		setVisible(true);
+		setSize(200, 300);
+		setLayout(new FlowLayout());
+		setBackground(Color.GRAY);
+
+	}
+
+}
+==================================================================================
+package InterfaceClassQ1;
+
+public interface IShape {
+
+	public boolean fitsText(String text);
+
+}
+=======================================================================================
+
+package InterfaceClassQ1;
+
+public class Rectangle implements IShape {
+	private double length;
+	private double width;
+	String color;
+
+	Rectangle(double length, double width) {
+		this.length = length;
+		this.width = width;
+	}
+
+	@Override
+	public boolean fitsText(String text) {
+		return text.length() < (this.width);
+
+	}
+
+}
+===================================================================================
+package InterfaceClassQ1;
+
+public class Circle implements IShape {
+	private double radius;
+	private String color;
+
+	Circle(double radius) {
+		this.radius = radius;
+	}
+
+	@Override
+	public boolean fitsText(String text) {
+		return text.length() < (2 * (this.radius)); // diameter of circle
+	}
+}
+=================================================================
+
