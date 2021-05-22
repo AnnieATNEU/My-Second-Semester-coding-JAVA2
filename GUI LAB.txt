@@ -1,0 +1,62 @@
+package application;
+
+import javafx.application.Application;
+import javafx.event.Event;
+import javafx.event.EventHandler;
+import javafx.stage.Stage;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
+
+public class Main extends Application {// implements EventHandler
+
+	Button button1 = new Button("Print"); // create button but should do connection
+
+	@Override
+	public void start(Stage S) {
+
+		Label label1 = new Label("First Name");
+		Label label2 = new Label("Last Name");
+
+		TextField textField1 = new TextField();
+		TextField textField2 = new TextField();
+
+		button1.setTranslateX(200);
+		button1.setTranslateY(70); // button size
+
+		Text text = new Text(); // to get userinput
+		text.setTranslateX(30);
+		text.setTranslateY(150);
+		text.setFill(Color.BLACK);
+			
+		button1.setOnAction(e ->        // button action eventhandler not needed for this
+		{
+     		String Fname = textField1.getText();
+			String Lname = textField2.getText();
+			text.setText("Welcome " + Fname + " " + Lname + " to our Game");
+		});
+		
+
+		HBox box = new HBox();
+		box.getChildren().addAll(label1,textField1, label2,textField2);
+		Group root = new Group(box,button1,text);
+
+		S.setTitle("My Application"); //setting title
+		Scene scene = new Scene(root, 800, 400, Color.BEIGE); //scene color and size
+		S.setScene(scene);
+		S.show();
+
+	}
+
+	public static void main(String[] args) {
+		launch(args);
+	}
+
+}
